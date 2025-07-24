@@ -19,7 +19,7 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 const Image: React.FC<ImageProps> = ({
   src,
   alt,
-  fallbackSrc = '/placeholder-image.jpg',
+  fallbackSrc = '/images/placeholder-project.svg',
   showSkeleton = true,
   aspectRatio,
   className = '',

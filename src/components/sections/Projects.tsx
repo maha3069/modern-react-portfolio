@@ -59,7 +59,7 @@ const Projects: React.FC = () => {
                 <Image
                   src={project.imageUrl}
                   alt={project.title}
-                  fallbackSrc="/placeholder-project.jpg"
+                  fallbackSrc="/images/placeholder-project.svg"
                   lazy={true}
                   aspectRatio="16/9"
                   className="project-image"
