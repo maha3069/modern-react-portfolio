@@ -9,6 +9,7 @@ interface CardProps {
   clickable?: boolean;
   className?: string;
   onClick?: () => void;
+  style?: React.CSSProperties;
 }
 
 const Card: React.FC<CardProps> = ({

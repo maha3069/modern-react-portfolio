@@ -9,7 +9,7 @@ export const useLazyLoading = (options: UseLazyLoadingOptions = {}) => {
   const { threshold = 0.1, rootMargin = '50px' } = options;
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = elementRef.current;

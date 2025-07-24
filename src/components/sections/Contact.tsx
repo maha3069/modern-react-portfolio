@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Loading } from '../ui';
+import { Button } from '../ui';
 import './Contact.css';
 
 interface ContactFormData {
