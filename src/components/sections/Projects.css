@@ -127,52 +127,31 @@
   transform: scale(1.05);
 }
 
-/* Card Overlay */
-.projects__card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+/* Card Actions */
+.projects__card-actions {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
 }
 
-.projects__card:hover .projects__card-overlay {
-  opacity: 1;
-}
-
-.projects__card-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.projects__link-btn {
+.projects__action-btn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: white;
-  color: #1e293b;
-  border: none;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-weight: 500;
+  font-size: 0.875rem;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
+  flex: 1;
+  justify-content: center;
 }
 
-.projects__link-btn:hover {
-  background: #3b82f6;
-  color: white;
-  transform: translateY(-2px);
-}
-
-.projects__link-btn svg {
+.projects__action-btn svg {
   width: 16px;
   height: 16px;
 }
@@ -304,7 +283,7 @@
     gap: 0.5rem;
   }
   
-  .projects__link-btn {
+  .projects__action-btn {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
@@ -319,12 +298,12 @@
     font-size: 1.75rem;
   }
   
-  .projects__card-links {
+  .projects__card-actions {
     flex-direction: column;
     gap: 0.5rem;
   }
   
-  .projects__link-btn {
+  .projects__action-btn {
     justify-content: center;
   }
   
@@ -388,4 +367,12 @@
 .app.dark .projects__card:hover .projects__tech-tag {
   background: #1e40af;
   color: #dbeafe;
+}
+
+.app.dark .projects__card-actions {
+  border-top-color: #334155;
+}
+
+.app.dark .projects__action-btn {
+  color: #cbd5e1;
 }
