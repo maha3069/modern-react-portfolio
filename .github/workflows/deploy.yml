@@ -79,3 +79,12 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+        
+      - name: Deployment Status
+        if: failure()
+        run: |
+          echo "⚠️ Deployment failed. Please enable GitHub Pages manually:"
+          echo "👉 Go to: https://github.com/${{ github.repository }}/settings/pages"
+          echo "👉 Set Source to 'GitHub Actions'"
+          echo "👉 Click Save"
