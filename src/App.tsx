@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, Suspense } from 'react';
 import { Header, Footer } from './components/layout';
 import { Hero } from './components/sections';
-import { LazyAbout, LazyExperience, LazyProjects, LazyContact } from './components/LazyComponents';
+import { LazyAbout, LazyExperience, LazyProjects, LazySkills, LazyContact } from './components/LazyComponents';
 import { Loading } from './components/ui';
 import PerformanceMonitor from './components/PerformanceMonitor';
 import './App.css';
@@ -67,7 +67,7 @@ const App: React.FC = () => {
   // Handle scroll-based active section detection
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'experience', 'projects', 'contact'];
+      const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -147,6 +147,11 @@ const App: React.FC = () => {
             <section id="projects">
               <Suspense fallback={<Loading size="large" text="Loading Projects..." />}>
                 <LazyProjects />
+              </Suspense>
+            </section>
+            <section id="skills">
+              <Suspense fallback={<Loading size="large" text="Loading Skills..." />}>
+                <LazySkills />
               </Suspense>
             </section>
             <section id="contact">
