@@ -1,5 +1,7 @@
 # Modern React Portfolio
 
+[![Deploy to GitHub Pages](https://github.com/maha3069/modern-react-portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/maha3069/modern-react-portfolio/actions/workflows/deploy.yml)
+
 A modern, responsive portfolio website built with React, TypeScript, and Vite. Features smooth animations, lazy loading, and optimized performance.
 
 ## 🚀 Features

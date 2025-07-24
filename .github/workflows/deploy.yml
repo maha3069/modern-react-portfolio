@@ -22,6 +22,9 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: modern-react-portfolio
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,14 +37,10 @@ jobs:
           cache-dependency-path: modern-react-portfolio/package-lock.json
           
       - name: Install dependencies
-        run: |
-          cd modern-react-portfolio
-          npm ci
+        run: npm ci
           
       - name: Build application
-        run: |
-          cd modern-react-portfolio
-          npm run build
+        run: npm run build
         env:
           NODE_ENV: production
           
