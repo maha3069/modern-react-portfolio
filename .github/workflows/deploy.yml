@@ -31,16 +31,27 @@ jobs:
         with:
           node-version: '20'
           
+      - name: Check directory structure
+        run: |
+          ls -la
+          if [ -d "modern-react-portfolio" ]; then
+            echo "Project is in subdirectory"
+            echo "PROJECT_DIR=modern-react-portfolio" >> $GITHUB_ENV
+          else
+            echo "Project is at root"
+            echo "PROJECT_DIR=." >> $GITHUB_ENV
+          fi
+          
       - name: Install dependencies
         run: |
-          cd modern-react-portfolio
+          cd ${{ env.PROJECT_DIR }}
           npm --version
           node --version
           npm ci
           
       - name: Build application
         run: |
-          cd modern-react-portfolio
+          cd ${{ env.PROJECT_DIR }}
           npm run build
         env:
           NODE_ENV: production
@@ -51,7 +62,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: modern-react-portfolio/dist
+          path: ${{ env.PROJECT_DIR }}/dist
 
   # Deployment job
   deploy:
