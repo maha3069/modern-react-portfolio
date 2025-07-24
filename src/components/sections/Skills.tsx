@@ -6,7 +6,6 @@ import './Skills.css';
 interface Skill {
   name: string;
   category: 'frontend' | 'backend' | 'tools' | 'ai-ml'| 'librariesAndFrameworks';
-  level: 'beginner' | 'intermediate' | 'advanced';
 }
 
 const Skills: React.FC = () => {
@@ -14,37 +13,37 @@ const Skills: React.FC = () => {
 
   const skills: Skill[] = [
     // AI & Machine Learning
-    { name: 'Machine Learning', category: 'ai-ml', level: 'intermediate' },
-    { name: 'Deep Learning', category: 'ai-ml', level: 'intermediate' },
-    { name: 'Generative AI', category: 'ai-ml', level: 'intermediate' },
-    { name: 'Python', category: 'ai-ml', level: 'intermediate' },
+    { name: 'Machine Learning', category: 'ai-ml' },
+    { name: 'Deep Learning', category: 'ai-ml' },
+    { name: 'Generative AI', category: 'ai-ml' },
+    { name: 'Python', category: 'ai-ml' },
     
     // AI & Machine Learning Libraries & Frameworks
-    { name: 'TensorFlow',category: 'librariesAndFrameworks', level: 'intermediate' },
-    { name: 'PyTorch',category: 'librariesAndFrameworks', level: 'intermediate' },
-    { name: 'Keras', category: 'librariesAndFrameworks', level: 'beginner' },
-    { name: 'Scikit-learn',category: 'librariesAndFrameworks', level: 'beginner' },
-    { name: 'OpenCV', category: 'librariesAndFrameworks', level: 'intermediate' },
-    { name: 'spaCy', category: 'librariesAndFrameworks', level: 'intermediate' },
-    { name: 'Transformers',category: 'librariesAndFrameworks', level: 'intermediate' },
-    { name: 'LangChain', category: 'librariesAndFrameworks', level: 'intermediate' },
-    { name: 'LangGraph', category: 'librariesAndFrameworks' ,level: 'intermediate' },
-    { name: 'CrewAI', category: 'librariesAndFrameworks', level: 'intermediate' },
+    { name: 'TensorFlow', category: 'librariesAndFrameworks' },
+    { name: 'PyTorch', category: 'librariesAndFrameworks' },
+    { name: 'Keras', category: 'librariesAndFrameworks' },
+    { name: 'Scikit-learn', category: 'librariesAndFrameworks' },
+    { name: 'OpenCV', category: 'librariesAndFrameworks' },
+    { name: 'spaCy', category: 'librariesAndFrameworks' },
+    { name: 'Transformers', category: 'librariesAndFrameworks' },
+    { name: 'LangChain', category: 'librariesAndFrameworks' },
+    { name: 'LangGraph', category: 'librariesAndFrameworks' },
+    { name: 'CrewAI', category: 'librariesAndFrameworks' },
 
     // Frontend Skills
-    { name: 'React', category: 'frontend', level: 'advanced' },
-    { name: 'JavaScript', category: 'frontend', level: 'advanced' },
-    { name: 'HTML/CSS', category: 'frontend', level: 'advanced' },
+    { name: 'React', category: 'frontend' },
+    { name: 'JavaScript', category: 'frontend' },
+    { name: 'HTML/CSS', category: 'frontend' },
 
     // Backend & Database
-    { name: 'MongoDb.', category: 'backend', level: 'intermediate' },
-    { name: 'MySQL', category: 'backend', level: 'intermediate' },
-    { name: 'REST APIs', category: 'backend', level: 'intermediate' },
+    { name: 'MongoDB', category: 'backend' },
+    { name: 'MySQL', category: 'backend' },
+    { name: 'REST APIs', category: 'backend' },
     
     // Tools & Technologies
-    { name: 'Git', category: 'tools', level: 'advanced' },
-    { name: 'Docker', category: 'tools', level: 'intermediate' },
-    { name: 'VS Code', category: 'tools', level: 'advanced' },
+    { name: 'Git', category: 'tools' },
+    { name: 'Docker', category: 'tools' },
+    { name: 'VS Code', category: 'tools' },
   ];
 
   const skillCategories = {
@@ -83,9 +82,8 @@ const Skills: React.FC = () => {
                 <h4 className="category-title">{title}</h4>
                 <div className="skills-list">
                   {getSkillsByCategory(category as Skill['category']).map((skill) => (
-                    <div key={skill.name} className={`skill-tag skill-${skill.level} hover-scale`}>
+                    <div key={skill.name} className="skill-tag hover-scale">
                       <span className="skill-name">{skill.name}</span>
-                      <span className="skill-level">{skill.level}</span>
                     </div>
                   ))}
                 </div>

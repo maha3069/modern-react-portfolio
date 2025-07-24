@@ -111,32 +111,17 @@
 
 .skill-tag {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 0.75rem 1rem;
   border-radius: 12px;
   transition: all 0.3s ease;
   cursor: default;
   min-width: 80px;
   text-align: center;
-}
-
-.skill-tag.skill-beginner {
-  background: linear-gradient(135deg, #fef5e7 0%, #fed7aa 100%);
-  border: 1px solid #f59e0b;
-  color: #92400e;
-}
-
-.skill-tag.skill-intermediate {
-  background: linear-gradient(135deg, #eff6ff 0%, #bfdbfe 100%);
-  border: 1px solid #3b82f6;
-  color: #1e40af;
-}
-
-.skill-tag.skill-advanced {
-  background: linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%);
-  border: 1px solid #10b981;
-  color: #047857;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 1px solid #cbd5e0;
+  color: #2d3748;
 }
 
 .skill-tag:hover {
@@ -147,14 +132,6 @@
 .skill-name {
   font-weight: 600;
   font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-}
-
-.skill-level {
-  font-size: 0.75rem;
-  font-weight: 500;
-  opacity: 0.8;
-  text-transform: capitalize;
 }
 
 /* Animation Classes */
