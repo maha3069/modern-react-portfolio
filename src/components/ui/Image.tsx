@@ -41,7 +41,11 @@ const Image: React.FC<ImageProps> = ({
   } = useLazyImage(src, { rootMargin: '100px' });
 
   const [imageLoaded, setImageLoaded] = useState(false);
-  const isLoading = lazy ? (lazyLoading || !imageLoaded) : !imageLoaded;
+  
+  // Simplified loading logic
+  const finalSrc = lazy ? imageSrc : src;
+  const displaySrc = currentSrc || finalSrc;
+  const isLoading = lazy ? (lazyLoading || (!imageLoaded && !!imageSrc)) : !imageLoaded;
   const imageError = lazy ? lazyError : hasError;
 
   const handleLoad = () => {
@@ -52,6 +56,7 @@ const Image: React.FC<ImageProps> = ({
     if (currentSrc !== fallbackSrc) {
       setCurrentSrc(fallbackSrc);
       setHasError(false);
+      setImageLoaded(false); // Reset to try loading fallback
     } else {
       setHasError(true);
       setImageLoaded(true);
@@ -64,9 +69,6 @@ const Image: React.FC<ImageProps> = ({
     imageError && 'image--error',
     className
   ].filter(Boolean).join(' ');
-
-  const finalSrc = lazy ? imageSrc : src;
-  const displaySrc = currentSrc || finalSrc;
 
   return (
     <div 

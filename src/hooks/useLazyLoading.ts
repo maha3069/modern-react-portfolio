@@ -41,29 +41,32 @@ export const useLazyLoading = (options: UseLazyLoadingOptions = {}) => {
 
 // Hook for lazy loading images
 export const useLazyImage = (src: string, options: UseLazyLoadingOptions = {}) => {
-  const { elementRef, isIntersecting, hasLoaded } = useLazyLoading(options);
+  const { elementRef, isIntersecting } = useLazyLoading(options);
   const [imageSrc, setImageSrc] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    if (isIntersecting && !hasLoaded) {
+    if (isIntersecting && !imageLoaded) {
       setIsLoading(true);
       const img = new Image();
       
       img.onload = () => {
         setImageSrc(src);
         setIsLoading(false);
+        setImageLoaded(true);
       };
       
       img.onerror = () => {
         setHasError(true);
         setIsLoading(false);
+        setImageLoaded(true);
       };
       
       img.src = src;
     }
-  }, [isIntersecting, hasLoaded, src]);
+  }, [isIntersecting, imageLoaded, src]);
 
   return {
     elementRef,
