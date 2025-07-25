@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
                 <span className="contact-icon">📧</span>
                 <div>
                   <h4>Email</h4>
-                  <a href="mailto:your.email@example.com">your.email@example.com</a>
+                  <a href="mailto:hajmeftahmaha@gmail.com">hajmeftahmaha@gmail.com</a>
                 </div>
               </div>
               <div className="contact-item">
