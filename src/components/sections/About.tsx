@@ -33,7 +33,7 @@ const About: React.FC = () => {
           <div className="about-photo">
             <div className="photo-container hover-scale">
               <img 
-                src="/api/placeholder/300/400" 
+                src={`${import.meta.env.BASE_URL}images/profile/profile_picture.jpg`}
                 alt="Professional headshot" 
                 className="profile-image"
                 loading="lazy"

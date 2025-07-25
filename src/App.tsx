@@ -67,7 +67,7 @@ const App: React.FC = () => {
   // Handle scroll-based active section detection
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'contact'];
+      const sections = ['hero', 'experience', 'projects', 'about', 'skills', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -95,13 +95,13 @@ const App: React.FC = () => {
     if (element) {
       const headerHeight = 80; // Account for fixed header
       const targetPosition = element.offsetTop - headerHeight;
-      
+
       // Add smooth scrolling with easing
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
       });
-      
+
       // Add a subtle animation to the target section
       element.style.transform = 'scale(1.01)';
       element.style.transition = 'transform 0.3s ease';
@@ -134,11 +134,6 @@ const App: React.FC = () => {
             <section id="hero">
               <Hero />
             </section>
-            <section id="about">
-              <Suspense fallback={<Loading size="large" text="Loading About..." />}>
-                <LazyAbout />
-              </Suspense>
-            </section>
             <section id="experience">
               <Suspense fallback={<Loading size="large" text="Loading Experience..." />}>
                 <LazyExperience />
@@ -147,6 +142,11 @@ const App: React.FC = () => {
             <section id="projects">
               <Suspense fallback={<Loading size="large" text="Loading Projects..." />}>
                 <LazyProjects />
+              </Suspense>
+            </section>
+            <section id="about">
+              <Suspense fallback={<Loading size="large" text="Loading About..." />}>
+                <LazyAbout />
               </Suspense>
             </section>
             <section id="skills">

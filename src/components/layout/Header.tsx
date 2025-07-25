@@ -33,9 +33,9 @@ const Header: React.FC = () => {
 
   const navigationItems = [
     { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
+    { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'contact', label: 'Contact' }
   ];

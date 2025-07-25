@@ -68,26 +68,23 @@ const Hero: React.FC = () => {
         
         <div className="hero__visual animate-fade-in-right animate-delay-500">
           <div className="hero__avatar animate-scale-in-bounce animate-delay-700">
-            <div className="hero__avatar-placeholder">
-              <svg 
-                className="hero__avatar-icon" 
-                viewBox="0 0 24 24" 
-                fill="currentColor"
-              >
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-              </svg>
-            </div>
+            <img 
+              src={`${import.meta.env.BASE_URL}images/profile/profile_picture.jpg`}
+              alt="Profile picture" 
+              className="hero__avatar-image"
+              loading="eager"
+            />
           </div>
           
           <div className="hero__floating-elements">
             <div className="hero__floating-element hero__floating-element--1 animate-float animate-delay-1000">
-              <span>React</span>
+              <span>Data</span>
             </div>
             <div className="hero__floating-element hero__floating-element--2 animate-float-slow animate-delay-700">
               <span>AI/ML</span>
             </div>
             <div className="hero__floating-element hero__floating-element--3 animate-float animate-delay-500">
-              <span>TypeScript</span>
+              <span>Generative AI</span>
             </div>
           </div>
         </div>
