@@ -57,5 +57,33 @@ export const experiences: Experience[] = [
       'Pandas',
       'NumPy',
     ]
+  },
+  {
+    id: '3',
+    company: 'Limagrain- VilmorinMikado',
+    position: 'R&D Deep Learning Intern',
+    location: 'Angers, France',
+    startDate: 'May 2023',
+    endDate: 'September 2023',
+    description: 'Reduced annual working time by 44 days through process automation.Developed an intelligent seed image sorting system using deep learning technologies. Focused on computer vision applications for agricultural technology.',
+    achievements: [
+      'Developed high-performance intelligent seed image sorting system with 97% accuracy',
+      'Implemented two specialized deep learning models for segmentation and classification',
+      'Experimented with and trained various deep learning architectures for optimal performance',
+      'Deployed models with graphical user interface using PyQt and Docker containerization',
+      'Reduced annual working time by 44 days through process automation'
+    ],
+    technologies: [
+      'TensorFlow',
+      'Keras',
+      'Python',
+      'CNN',
+      'Computer Vision',
+      'PyQt',
+      'Docker',
+      'Deep Learning',
+      'Image Processing',
+      'Neural Networks'
+    ]
   }
 ];

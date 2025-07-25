@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { experiences } from '../../data/experience';
 import { Card } from '../ui';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
@@ -6,6 +6,19 @@ import './Experience.css';
 
 const Experience: React.FC = () => {
   const { elementRef: experienceRef, isVisible: experienceVisible } = useScrollAnimation();
+  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
+
+  const toggleExpanded = (experienceId: string) => {
+    const newExpandedItems = new Set(expandedItems);
+    if (newExpandedItems.has(experienceId)) {
+      newExpandedItems.delete(experienceId);
+    } else {
+      newExpandedItems.add(experienceId);
+    }
+    setExpandedItems(newExpandedItems);
+  };
+
+  const isExpanded = (experienceId: string) => expandedItems.has(experienceId);
 
   const formatDateRange = (startDate: string, endDate: string) => {
     return `${startDate} - ${endDate}`;
@@ -49,7 +62,19 @@ const Experience: React.FC = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="timeline-marker">
-                <div className="timeline-dot hover-scale"></div>
+                <button
+                  className={`timeline-toggle ${isExpanded(experience.id) ? 'expanded' : ''}`}
+                  onClick={() => toggleExpanded(experience.id)}
+                  aria-label={`${isExpanded(experience.id) ? 'Collapse' : 'Expand'} ${experience.position} details`}
+                >
+                  <svg 
+                    className="triangle-icon" 
+                    viewBox="0 0 24 24" 
+                    fill="currentColor"
+                  >
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                  </svg>
+                </button>
                 {index < experiences.length - 1 && <div className="timeline-line"></div>}
               </div>
               
@@ -58,7 +83,18 @@ const Experience: React.FC = () => {
                 hover={true} 
                 className="experience-content hover-lift"
               >
-                <div className="experience-header">
+                <div 
+                  className="experience-header"
+                  onClick={() => toggleExpanded(experience.id)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      toggleExpanded(experience.id);
+                    }
+                  }}
+                >
                   <div className="experience-title-group">
                     <h3 className="experience-position">{experience.position}</h3>
                     <h4 className="experience-company">{experience.company}</h4>
@@ -75,23 +111,25 @@ const Experience: React.FC = () => {
                   <p>{experience.description}</p>
                 </div>
 
-                {experience.achievements.length > 0 && (
-                  <div className="experience-achievements">
-                    <h5 className="achievements-title">Key Achievements</h5>
-                    <ul className="achievements-list">
-                      {renderAchievements(experience.achievements)}
-                    </ul>
-                  </div>
-                )}
-
-                {experience.technologies.length > 0 && (
-                  <div className="experience-technologies">
-                    <h5 className="technologies-title">Technologies Used</h5>
-                    <div className="technologies-list">
-                      {renderTechnologyTags(experience.technologies)}
+                <div className={`experience-details ${isExpanded(experience.id) ? 'expanded' : 'collapsed'}`}>
+                  {experience.achievements.length > 0 && (
+                    <div className="experience-achievements">
+                      <h5 className="achievements-title">Key Achievements</h5>
+                      <ul className="achievements-list">
+                        {renderAchievements(experience.achievements)}
+                      </ul>
                     </div>
-                  </div>
-                )}
+                  )}
+
+                  {experience.technologies.length > 0 && (
+                    <div className="experience-technologies">
+                      <h5 className="technologies-title">Technologies Used</h5>
+                      <div className="technologies-list">
+                        {renderTechnologyTags(experience.technologies)}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </Card>
             </div>
           ))}
