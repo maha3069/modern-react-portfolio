@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
           <div className="footer__section footer__brand">
             <h3 className="footer__brand-title">Portfolio</h3>
             <p className="footer__brand-description">
-              AI & Machine Learning Enthusiast | Full-Stack Developer
+              AI & Machine Learning Proffesional
             </p>
             <p className="footer__brand-description">
               Building innovative solutions with modern technologies

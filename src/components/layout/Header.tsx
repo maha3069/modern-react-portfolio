@@ -59,7 +59,7 @@ const Header: React.FC = () => {
             onClick={() => handleNavClick('hero')}
             aria-label="Go to home section"
           >
-            <span className="header__logo-text">Portfolio</span>
+            <span className="header__logo-text">Maha Hadj Meftah</span>
           </button>
         </div>
 

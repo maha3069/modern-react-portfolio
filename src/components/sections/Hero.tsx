@@ -31,18 +31,17 @@ const Hero: React.FC = () => {
             </h1>
             
             <p className="hero__description animate-fade-in-up animate-delay-700">
-              AI Engineer with expertise in machine learning, and modern web technologies. Passionate about creating 
-              innovative solutions that bridge the gap between artificial intelligence 
-              and real problems.
+              AI Engineer with expertise in machine learning,deep learning. Driving impactful solution for 
+              and real problems with data.
             </p>
             
             <div className="hero__stats animate-fade-in-up animate-delay-1000">
               <div className="hero__stat hover-lift">
-                <span className="hero__stat-number">70%</span>
-                <span className="hero__stat-label">Processing Time Reduction</span>
+                <span className="hero__stat-number">5+</span>
+                <span className="hero__stat-label">IA projects</span>
               </div>
               <div className="hero__stat hover-lift">
-                <span className="hero__stat-number">2+</span>
+                <span className="hero__stat-number">2</span>
                 <span className="hero__stat-label">Years Experience</span>
               </div>
             </div>

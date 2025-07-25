@@ -42,24 +42,20 @@ export const experiences: Experience[] = [
     achievements: [
       '70% reduction in processing time through ML algorithm optimization',
       'Developed automated data pipeline reducing manual processing by 85%',
-      'Implemented containerized ML models improving deployment efficiency',
+      'Implemented containerized solution improving deployment efficiency',
       'Collaborated with cross-functional teams on AI-driven quality control systems',
       'Presented findings to senior management and technical stakeholders'
     ],
     technologies: [
       'Machine Learning',
       'Python',
-      'TensorFlow',
-      'PyTorch',
       'MySQL',
       'Docker',
-      'Kubernetes',
       'Git',
       'Linux',
       'Data Analysis',
       'Pandas',
       'NumPy',
-      'Scikit-learn'
     ]
   }
 ];

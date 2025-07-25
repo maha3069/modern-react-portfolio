@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description: 'A project focused on predicting equipment failures to enable timely maintenance and reduce unexpected downtime.',
     longDescription:
       'The Predictive Maintenance System analyzes data to identify patterns indicating potential equipment breakdowns. By leveraging data-driven insights, this project aims to anticipate when maintenance activities should be performed, minimizing unplanned outages and optimizing machinery lifecycle.',
-    technologies: ['Python', 'Machine Learning', 'Data Analysis'],
+    technologies: ['Python', 'Machine Learning', 'MLOPS, CI/CD', 'MlFlow'],
     imageUrl: `${import.meta.env.BASE_URL}images/projects/predictive-maintenance.jpg`,
     githubUrl: 'https://github.com/mahahajmeftah/Predictive-Maintenance-System',
     featured: true,

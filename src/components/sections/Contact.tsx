@@ -101,7 +101,7 @@ const Contact: React.FC = () => {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/yourprofile',
+      url: 'https://www.linkedin.com/in/maha-hadj-meftah-02a0b5132/',
       icon: '💼'
     },
     {
