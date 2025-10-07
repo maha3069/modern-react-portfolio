@@ -48,9 +48,9 @@ export const projects: Project[] = [
     githubUrl: 'https://nbviewer.org/github/mahahajmeftah/Exploratory-data-analysis-of-Prosper-Loan-data/blob/main/exploratory-data%20analysis.ipynb',
     featured: false,
     category: 'project'
-  }
+  },
   {
-    {
+    
   id: '5',
   title: 'Digital Twin Chatbot',
   description: 'An AI chatbot that knows my professional background, academic path, and experience to answer questions about my profile.',
@@ -72,6 +72,4 @@ export const projects: Project[] = [
   featured: true, 
   category: 'project'
 }
-
-  }
 ];
