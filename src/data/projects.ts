@@ -49,4 +49,29 @@ export const projects: Project[] = [
     featured: false,
     category: 'project'
   }
+  {
+    {
+  id: '5',
+  title: 'Digital Twin Chatbot',
+  description: 'An AI chatbot that knows my professional background, academic path, and experience to answer questions about my profile.',
+  longDescription: 'The project showcases a complete serverless architecture deployment on AWS, featuring Lambda functions for compute, S3 for conversation history storage, API Gateway for RESTful endpoints, and CloudFront for global content delivery. The system includes advanced AI engineering with dynamic prompt generation using FastAPI and OpenAI integration.',
+  technologies: [
+    'AWS Lambda', 
+    'AWS S3', 
+    'AWS API Gateway', 
+    'AWS CloudFront', 
+    'FastAPI', 
+    'OpenAI', 
+    'Python', 
+    'Serverless Architecture',
+    'Dynamic Prompting',
+    'AI Engineering'
+  ],
+  imageUrl: `${import.meta.env.BASE_URL}images/projects/project_digital_twin_cover1.jpg`,
+  githubUrl: 'https://github.com/maha3069/digital_twin',
+  featured: true, 
+  category: 'project'
+}
+
+  }
 ];
