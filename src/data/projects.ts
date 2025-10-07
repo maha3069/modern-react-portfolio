@@ -53,7 +53,7 @@ export const projects: Project[] = [
     
   id: '5',
   title: 'Digital Twin Chatbot',
-  description: 'An AI chatbot that knows my professional background, academic path, and experience to answer questions about my profile.',
+  description: 'A digital twin chatbot that replaces traditional CV format, allowing interactive conversations about my professional background using serverless AWS architecture.',
   longDescription: 'The project showcases a complete serverless architecture deployment on AWS, featuring Lambda functions for compute, S3 for conversation history storage, API Gateway for RESTful endpoints, and CloudFront for global content delivery. The system includes advanced AI engineering with dynamic prompt generation using FastAPI and OpenAI integration.',
   technologies: [
     'AWS Lambda', 
