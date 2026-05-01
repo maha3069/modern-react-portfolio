@@ -81,18 +81,18 @@ const Flashcard: React.FC = () => {
           onClick={handleFlip}
           role="button"
           tabIndex={0}
-          aria-label={isFlipped ? 'Showing answer. Click to see question.' : 'Showing question. Click to reveal answer.'}
+          aria-label={isFlipped ? 'Showing answer. Cliquez pour voir la question.' : 'Showing question. Cliquez pour voir la réponse.'}
         >
           <div className="flashcard-page__card-inner">
             <div className="flashcard-page__card-front">
               <span className="flashcard-page__card-label">Question</span>
               <p className="flashcard-page__card-text">{item.question}</p>
-              <span className="flashcard-page__card-hint">Click to reveal answer</span>
+              <span className="flashcard-page__card-hint">Cliquez pour voir la réponse</span>
             </div>
             <div className="flashcard-page__card-back">
-              <span className="flashcard-page__card-label">Answer</span>
+              <span className="flashcard-page__card-label">Réponse</span>
               <p className="flashcard-page__card-text">{item.answer}</p>
-              <span className="flashcard-page__card-hint">Click to see question</span>
+              <span className="flashcard-page__card-hint">Cliquez pour voir la question</span>
             </div>
           </div>
         </div>
