@@ -313,8 +313,19 @@
   }
 
   .flashcard-page__nav {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    background-color: rgba(249, 250, 251, 0.98);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid #e2e8f0;
     gap: var(--spacing-3);
-    padding: var(--spacing-4);
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+
+  .app.dark .flashcard-page__nav {
+    background-color: rgba(17, 24, 39, 0.98);
+    border-top-color: #334155;
   }
 
   .flashcard-page__counter {
