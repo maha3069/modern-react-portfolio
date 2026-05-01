@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme, useNavigation } from '../../App';
 import './Header.css';
 
 const Header: React.FC = () => {
   const { isDarkMode, toggleDarkMode, isMobile } = useTheme();
   const { activeSection, scrollToSection } = useNavigation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const isLearningPage = location.pathname.startsWith('/learning');
 
   // Handle scroll effect for header styling
   useEffect(() => {
@@ -31,17 +35,25 @@ const Header: React.FC = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMenuOpen]);
 
-  const navigationItems = [
+  const navigationItems: { id: string; label: string; route?: string }[] = [
     { id: 'hero', label: 'Home' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Contact' },
+    { id: 'learning', label: 'Learning', route: '/learning' }
   ];
 
-  const handleNavClick = (sectionId: string) => {
-    scrollToSection(sectionId);
+  const handleNavClick = (item: { id: string; route?: string }) => {
+    if (item.route) {
+      navigate(item.route);
+    } else if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => scrollToSection(item.id), 150);
+    } else {
+      scrollToSection(item.id);
+    }
     setIsMenuOpen(false);
   };
 
@@ -54,9 +66,9 @@ const Header: React.FC = () => {
       <div className="header__container">
         {/* Logo/Brand */}
         <div className="header__brand">
-          <button 
+          <button
             className="header__logo"
-            onClick={() => handleNavClick('hero')}
+            onClick={() => handleNavClick({ id: 'hero' })}
             aria-label="Go to home section"
           >
             <span className="header__logo-text">Maha Hadj Meftah</span>
@@ -66,17 +78,22 @@ const Header: React.FC = () => {
         {/* Desktop Navigation */}
         <nav className="header__nav header-nav" aria-label="Main navigation">
           <ul className={`header__nav-list ${isMenuOpen ? 'header__nav-list--open' : ''}`}>
-            {navigationItems.map((item) => (
-              <li key={item.id} className="header__nav-item">
-                <button
-                  className={`header__nav-link ${activeSection === item.id ? 'header__nav-link--active' : ''}`}
-                  onClick={() => handleNavClick(item.id)}
-                  aria-current={activeSection === item.id ? 'page' : undefined}
-                >
-                  {item.label}
-                </button>
-              </li>
-            ))}
+            {navigationItems.map((item) => {
+              const isActive = item.route
+                ? isLearningPage
+                : !isLearningPage && activeSection === item.id;
+              return (
+                <li key={item.id} className="header__nav-item">
+                  <button
+                    className={`header__nav-link ${isActive ? 'header__nav-link--active' : ''}`}
+                    onClick={() => handleNavClick(item)}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Mobile Menu Toggle */}

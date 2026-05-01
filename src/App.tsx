@@ -1,8 +1,11 @@
 import React, { createContext, useContext, useState, useEffect, Suspense } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Header, Footer } from './components/layout';
 import { Hero } from './components/sections';
 import { LazyAbout, LazyExperience, LazyProjects, LazySkills, LazyContact } from './components/LazyComponents';
 import { Loading } from './components/ui';
+import LearningHub from './pages/LearningHub';
+import Flashcard from './pages/Flashcard';
 import PerformanceMonitor from './components/PerformanceMonitor';
 import './App.css';
 import './styles/animations.css';
@@ -64,8 +67,12 @@ const App: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Handle scroll-based active section detection
+  const location = useLocation();
+
+  // Handle scroll-based active section detection (only on portfolio page)
   useEffect(() => {
+    if (location.pathname !== '/') return;
+
     const handleScroll = () => {
       const sections = ['hero', 'experience', 'projects', 'about', 'skills', 'contact'];
       const scrollPosition = window.scrollY + 100;
@@ -84,7 +91,7 @@ const App: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -131,34 +138,42 @@ const App: React.FC = () => {
         <div className={`app ${isDarkMode ? 'dark' : 'light'}`}>
           <Header />
           <main>
-            <section id="hero">
-              <Hero />
-            </section>
-            <section id="experience">
-              <Suspense fallback={<Loading size="large" text="Loading Experience..." />}>
-                <LazyExperience />
-              </Suspense>
-            </section>
-            <section id="projects">
-              <Suspense fallback={<Loading size="large" text="Loading Projects..." />}>
-                <LazyProjects />
-              </Suspense>
-            </section>
-            <section id="about">
-              <Suspense fallback={<Loading size="large" text="Loading About..." />}>
-                <LazyAbout />
-              </Suspense>
-            </section>
-            <section id="skills">
-              <Suspense fallback={<Loading size="large" text="Loading Skills..." />}>
-                <LazySkills />
-              </Suspense>
-            </section>
-            <section id="contact">
-              <Suspense fallback={<Loading size="large" text="Loading Contact..." />}>
-                <LazyContact />
-              </Suspense>
-            </section>
+            <Routes>
+              <Route path="/" element={
+                <>
+                  <section id="hero">
+                    <Hero />
+                  </section>
+                  <section id="experience">
+                    <Suspense fallback={<Loading size="large" text="Loading Experience..." />}>
+                      <LazyExperience />
+                    </Suspense>
+                  </section>
+                  <section id="projects">
+                    <Suspense fallback={<Loading size="large" text="Loading Projects..." />}>
+                      <LazyProjects />
+                    </Suspense>
+                  </section>
+                  <section id="about">
+                    <Suspense fallback={<Loading size="large" text="Loading About..." />}>
+                      <LazyAbout />
+                    </Suspense>
+                  </section>
+                  <section id="skills">
+                    <Suspense fallback={<Loading size="large" text="Loading Skills..." />}>
+                      <LazySkills />
+                    </Suspense>
+                  </section>
+                  <section id="contact">
+                    <Suspense fallback={<Loading size="large" text="Loading Contact..." />}>
+                      <LazyContact />
+                    </Suspense>
+                  </section>
+                </>
+              } />
+              <Route path="/learning" element={<LearningHub />} />
+              <Route path="/learning/:slug" element={<Flashcard />} />
+            </Routes>
           </main>
           <Footer />
           <PerformanceMonitor />
