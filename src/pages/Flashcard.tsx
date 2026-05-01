@@ -53,26 +53,28 @@ const Flashcard: React.FC = () => {
 
   return (
     <div className="flashcard-page" onKeyDown={handleKeyDown} tabIndex={-1}>
-      <div className="flashcard-page__header">
-        <button className="flashcard-page__back" onClick={() => navigate('/learning')}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          Back to Topics
-        </button>
-        <div className="flashcard-page__info">
-          <span className="flashcard-page__badge">{category.title}</span>
-          <span className="flashcard-page__progress">
-            {currentIndex + 1} / {total}
-          </span>
+      <div className="flashcard-page__topbar">
+        <div className="flashcard-page__header">
+          <button className="flashcard-page__back" onClick={() => navigate('/learning')}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Back to Topics
+          </button>
+          <div className="flashcard-page__info">
+            <span className="flashcard-page__badge">{category.title}</span>
+            <span className="flashcard-page__progress">
+              {currentIndex + 1} / {total}
+            </span>
+          </div>
         </div>
-      </div>
 
-      <div className="flashcard-page__progress-bar">
-        <div
-          className="flashcard-page__progress-fill"
-          style={{ width: `${((currentIndex + 1) / total) * 100}%` }}
-        />
+        <div className="flashcard-page__progress-bar">
+          <div
+            className="flashcard-page__progress-fill"
+            style={{ width: `${((currentIndex + 1) / total) * 100}%` }}
+          />
+        </div>
       </div>
 
       <div className="flashcard-page__content">
